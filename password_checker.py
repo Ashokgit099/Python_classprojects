@@ -1,0 +1,46 @@
+import stdio
+import sys
+
+
+# Return True if pwd is a valid password and False otherwise.
+def is_valid(pwd):
+    check1 = False  # length check
+    check2 = False  # digit check
+    check3 = False  # upper case check
+    check4 = False  # lower case check
+    check5 = False  # alphanumeric check
+
+    # Perform length check on pwd.
+    check1 = len(pwd) >= 8
+
+    # Iterate over characters c of pwd.
+    for c in pwd:
+        # Perform digit check on c.
+        if c.isdigit():
+            check2 = True
+        # Perform upper case check on c.
+        elif c.isupper():
+            check3 = True
+        # Perform lower case check on c.
+        elif c.islower():
+            check4 = True
+        # Perform alphanumeric check on c.
+        elif not (c.isalnum()):
+            check5 = True
+
+    # Return True if all checks are True and False otherwise.
+    if check1 == True and check2 == True and check3 == True and check4 == True\
+       and check5 == True:
+        return True
+    else:
+        return False
+
+
+# Test client [DO NOT EDIT].
+def _main():
+    pwd = sys.argv[1]
+    stdio.writeln(is_valid(pwd))
+
+
+if __name__ == '__main__':
+    _main()
